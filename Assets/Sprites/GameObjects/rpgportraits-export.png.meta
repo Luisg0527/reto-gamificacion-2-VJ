@@ -1,0 +1,988 @@
+fileFormatVersion: 2
+guid: 8266fdd5d66734e1399d80e98671cda5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1631891334871222778
+    second: rpgportraits-export_0
+  - first:
+      213: 7735148716259893528
+    second: rpgportraits-export_1
+  - first:
+      213: 8185630684101905435
+    second: rpgportraits-export_2
+  - first:
+      213: -8875424266934618253
+    second: rpgportraits-export_3
+  - first:
+      213: 398534540010386046
+    second: rpgportraits-export_4
+  - first:
+      213: 1287935361179494774
+    second: rpgportraits-export_5
+  - first:
+      213: 7458610664707321748
+    second: rpgportraits-export_6
+  - first:
+      213: 4047231582908662028
+    second: rpgportraits-export_7
+  - first:
+      213: 7019482789719795570
+    second: rpgportraits-export_8
+  - first:
+      213: 2579065011197106167
+    second: rpgportraits-export_9
+  - first:
+      213: 4063794596970145232
+    second: rpgportraits-export_10
+  - first:
+      213: 7349341242906022528
+    second: rpgportraits-export_11
+  - first:
+      213: -3058578704579723735
+    second: rpgportraits-export_12
+  - first:
+      213: 5806935438326755317
+    second: rpgportraits-export_13
+  - first:
+      213: -1137780364732426842
+    second: rpgportraits-export_14
+  - first:
+      213: 8097398600253969898
+    second: rpgportraits-export_15
+  - first:
+      213: -4657390472509869818
+    second: rpgportraits-export_16
+  - first:
+      213: -5684432354477683430
+    second: rpgportraits-export_17
+  - first:
+      213: 4517922956490052464
+    second: rpgportraits-export_18
+  - first:
+      213: 443119035780507924
+    second: rpgportraits-export_19
+  - first:
+      213: 7638760260068952610
+    second: rpgportraits-export_20
+  - first:
+      213: -3076314624555695429
+    second: rpgportraits-export_21
+  - first:
+      213: 8092336529165895206
+    second: rpgportraits-export_22
+  - first:
+      213: 481848827205198782
+    second: rpgportraits-export_23
+  - first:
+      213: -6859794226050088999
+    second: rpgportraits-export_24
+  - first:
+      213: -1904587122797649818
+    second: rpgportraits-export_25
+  - first:
+      213: -6045118246341736594
+    second: rpgportraits-export_26
+  - first:
+      213: -8522328146946441743
+    second: rpgportraits-export_27
+  - first:
+      213: -8758553363403509838
+    second: rpgportraits-export_28
+  - first:
+      213: -3841434113888833872
+    second: rpgportraits-export_29
+  - first:
+      213: -74760681392281809
+    second: rpgportraits-export_30
+  - first:
+      213: -2678413841512352676
+    second: rpgportraits-export_31
+  - first:
+      213: 5507277788002695744
+    second: rpgportraits-export_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rpgportraits-export_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 76
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af9890fd584a5a610800000000000000
+      internalID: 1631891334871222778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 75
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8116d7d56c4c85b60800000000000000
+      internalID: 7735148716259893528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_2
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 76
+        width: 34
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1c8e64ecb3399170800000000000000
+      internalID: 8185630684101905435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_3
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 75
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 377fa7a37a824d480800000000000000
+      internalID: -8875424266934618253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_4
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 75
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e72fa087d01e78500800000000000000
+      internalID: 398534540010386046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_5
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 75
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 679a4c0236aafd110800000000000000
+      internalID: 1287935361179494774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_6
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 75
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49fe1d3d1ee428760800000000000000
+      internalID: 7458610664707321748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_7
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 75
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0143077ea7aa2830800000000000000
+      internalID: 4047231582908662028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_8
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 75
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 277673c08663a6160800000000000000
+      internalID: 7019482789719795570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 75
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f7da0596fdaac320800000000000000
+      internalID: 2579065011197106167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_10
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 75
+        width: 34
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d5ae80b7af756830800000000000000
+      internalID: 4063794596970145232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_11
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 40
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0829a840cea1ef560800000000000000
+      internalID: 7349341242906022528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_12
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 39
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92e73fb8fdebd85d0800000000000000
+      internalID: -3058578704579723735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_13
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 40
+        width: 34
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ffe713c301669050800000000000000
+      internalID: 5806935438326755317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_14
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 39
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a595b759cac530f0800000000000000
+      internalID: -1137780364732426842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_15
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 39
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae512e4002dbf5070800000000000000
+      internalID: 8097398600253969898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_16
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 39
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 601b2c98a00ad5fb0800000000000000
+      internalID: -4657390472509869818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_17
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 39
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1dce9914e6dc11b0800000000000000
+      internalID: -5684432354477683430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_18
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 39
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0731c20fdf2e2be30800000000000000
+      internalID: 4517922956490052464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_19
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 39
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41929e05a66462600800000000000000
+      internalID: 443119035780507924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_20
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 39
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22ac7c11cf3520a60800000000000000
+      internalID: 7638760260068952610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_21
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 39
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb2c402e52cbe45d0800000000000000
+      internalID: -3076314624555695429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_22
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 4
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 626c9dfb231cd4070800000000000000
+      internalID: 8092336529165895206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_23
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 3
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb3210594fedfa600800000000000000
+      internalID: 481848827205198782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_24
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 4
+        width: 34
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9df32040f7d1dc0a0800000000000000
+      internalID: -6859794226050088999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_25
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 3
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 660ecdd4a1c8195e0800000000000000
+      internalID: -1904587122797649818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_26
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 3
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e67819dbbfc6b1ca0800000000000000
+      internalID: -6045118246341736594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_27
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 3
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fdb1fd14bb9ab980800000000000000
+      internalID: -8522328146946441743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_28
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 3
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bfe70cee1e537680800000000000000
+      internalID: -8758553363403509838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_29
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 3
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bea695b60c70bac0800000000000000
+      internalID: -3841434113888833872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_30
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 3
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f27627e6e8566fef0800000000000000
+      internalID: -74760681392281809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_31
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 3
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c54ba2f4dcc54dad0800000000000000
+      internalID: -2678413841512352676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpgportraits-export_32
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 3
+        width: 34
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04abc4928f7cd6c40800000000000000
+      internalID: 5507277788002695744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      rpgportraits-export_0: 1631891334871222778
+      rpgportraits-export_1: 7735148716259893528
+      rpgportraits-export_10: 4063794596970145232
+      rpgportraits-export_11: 7349341242906022528
+      rpgportraits-export_12: -3058578704579723735
+      rpgportraits-export_13: 5806935438326755317
+      rpgportraits-export_14: -1137780364732426842
+      rpgportraits-export_15: 8097398600253969898
+      rpgportraits-export_16: -4657390472509869818
+      rpgportraits-export_17: -5684432354477683430
+      rpgportraits-export_18: 4517922956490052464
+      rpgportraits-export_19: 443119035780507924
+      rpgportraits-export_2: 8185630684101905435
+      rpgportraits-export_20: 7638760260068952610
+      rpgportraits-export_21: -3076314624555695429
+      rpgportraits-export_22: 8092336529165895206
+      rpgportraits-export_23: 481848827205198782
+      rpgportraits-export_24: -6859794226050088999
+      rpgportraits-export_25: -1904587122797649818
+      rpgportraits-export_26: -6045118246341736594
+      rpgportraits-export_27: -8522328146946441743
+      rpgportraits-export_28: -8758553363403509838
+      rpgportraits-export_29: -3841434113888833872
+      rpgportraits-export_3: -8875424266934618253
+      rpgportraits-export_30: -74760681392281809
+      rpgportraits-export_31: -2678413841512352676
+      rpgportraits-export_32: 5507277788002695744
+      rpgportraits-export_4: 398534540010386046
+      rpgportraits-export_5: 1287935361179494774
+      rpgportraits-export_6: 7458610664707321748
+      rpgportraits-export_7: 4047231582908662028
+      rpgportraits-export_8: 7019482789719795570
+      rpgportraits-export_9: 2579065011197106167
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
