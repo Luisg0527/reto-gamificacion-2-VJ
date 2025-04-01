@@ -11,6 +11,16 @@ public class MariposaGameControl : MonoBehaviour
     public UIController UIController;
     public SFXManager SFXManager;
 
+    public Transform icono1;
+    public Transform icono2;
+    public Transform icono3;
+    public Transform icono4;
+    public Transform icono5;
+    public Transform icono6;
+
+
+    public float incrementaAltura = 1f;
+
     public Text preguntaText;
     public Text respuesta1Text;
     public Text respuesta2Text;
@@ -90,6 +100,10 @@ public class MariposaGameControl : MonoBehaviour
         respuesta2Text.text = "Nueva Respuesta";
 
         respuesta3Text.text = "Nueva Respuesta";
+    }
+
+    public void moverIcon(int i){
+
 
     }
 
