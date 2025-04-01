@@ -1,6 +1,8 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MariposaGameControl : MonoBehaviour
 {
@@ -8,6 +10,15 @@ public class MariposaGameControl : MonoBehaviour
     static public MariposaGameControl Instance;
     public UIController UIController;
     public SFXManager SFXManager;
+
+    public Text preguntaText;
+    public Text respuesta1Text;
+    public Text respuesta2Text;
+    public Text respuesta3Text;
+
+
+
+    public int preguntaSelection;
 
     public void Awake()
     {
@@ -49,18 +60,15 @@ public class MariposaGameControl : MonoBehaviour
         }
     }
 
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
+    public void Select(int _selection){
+        preguntaSelection = _selection;
+        Debug.Log("Escogido");
+        LoadPregunta();
     }
 
     public void ActiveEndScene()
     {
         SceneManager.LoadScene("EndScene1");
-
 
     }
 
@@ -73,4 +81,18 @@ public class MariposaGameControl : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
     }
+
+    public void LoadPregunta(){
+        preguntaText.text = "Nueva Pregunta";
+
+        respuesta1Text.text = "Nueva Respuesta";
+
+        respuesta2Text.text = "Nueva Respuesta";
+
+        respuesta3Text.text = "Nueva Respuesta";
+
+    }
+
+
+
 }
