@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -11,22 +12,20 @@ public class MariposaGameControl : MonoBehaviour
     public UIController UIController;
     public SFXManager SFXManager;
 
-    public Transform icono1;
-    public Transform icono2;
-    public Transform icono3;
-    public Transform icono4;
-    public Transform icono5;
-    public Transform icono6;
+    preguntaMariposa preguntaPrueba = new preguntaMariposa{idPregunta = 1, pregunta = "Esta es la pregunta que estoy usando para probar el pedo jajajajaja", respuesta1 = "Respuesta numero 1", respuesta2 = "dfdsaf", respuesta3 = "asfddsafdsa", correcta = 2, indicadorSubir = 0, indicadorBajar = 0};
 
 
-    public float incrementaAltura = 1f;
+    public GameObject iconos;
+
+
+
+    public float incrementaAltura = 0.5f;
+    public float decrementaAltura = 0.5f;
 
     public Text preguntaText;
     public Text respuesta1Text;
     public Text respuesta2Text;
     public Text respuesta3Text;
-
-
 
     public int preguntaSelection;
 
@@ -34,6 +33,9 @@ public class MariposaGameControl : MonoBehaviour
     {
         StopAllCoroutines();
         PlayerPrefs.SetInt("ansTime", PlayerPrefs.GetInt("ansTime", ansTime));
+
+        loadPreguntaMariposa();
+        UpdatePregunta();
 
         Instance = this;
         Instance.SetReferences();
@@ -70,11 +72,24 @@ public class MariposaGameControl : MonoBehaviour
         }
     }
 
-    public void Select(int _selection){
+
+
+    public void selectPregunta(int _selection){
         preguntaSelection = _selection;
         Debug.Log("Escogido");
-        LoadPregunta();
     }
+
+    public void confirmRespuesta(){
+        if(preguntaPrueba.correcta == preguntaSelection){
+            subirIcon();
+        }
+        else{
+            bajarIcon();
+        }
+        
+    }
+
+
 
     public void ActiveEndScene()
     {
@@ -92,19 +107,27 @@ public class MariposaGameControl : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
     }
 
-    public void LoadPregunta(){
-        preguntaText.text = "Nueva Pregunta";
-
-        respuesta1Text.text = "Nueva Respuesta";
-
-        respuesta2Text.text = "Nueva Respuesta";
-
-        respuesta3Text.text = "Nueva Respuesta";
+    public void loadPreguntaMariposa(){
+        
     }
 
-    public void moverIcon(int i){
+    public void UpdatePregunta(){
+        preguntaText.text = preguntaPrueba.pregunta;
+
+        respuesta1Text.text = preguntaPrueba.respuesta1;
+
+        respuesta2Text.text = preguntaPrueba.respuesta2;
+
+        respuesta3Text.text = preguntaPrueba.respuesta3;
+    }
 
 
+
+    public void subirIcon(){
+        iconos.transform.position += new Vector3(0,incrementaAltura,0);
+    }
+    public void bajarIcon(){
+        iconos.transform.position += new Vector3(0,decrementaAltura,0);
     }
 
 
