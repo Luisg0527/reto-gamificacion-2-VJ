@@ -16,7 +16,9 @@ public class MariposaGameControl : MonoBehaviour
     public UIController UIController;
     public SFXManager SFXManager;
 
-    preguntaMariposa preguntaPrueba = new preguntaMariposa{idPregunta = 1, pregunta = "Esta es la pregunta que estoy usando para probar el pedo jajajajaja", respuesta1 = "Respuesta numero 1", respuesta2 = "dfdsaf", respuesta3 = "asfddsafdsa", correcta = 2, indicadorSubir = 1, indicadorBajar = 1};
+    preguntaMariposa preguntaPrueba = new preguntaMariposa{idPregunta = 1, pregunta = "Si Aa balalalsaldsaldsa", respuesta1 = "5 ", respuesta2 = "1 ", respuesta3 = " 6 ", correcta = 3, indicadorSubir = 1, indicadorBajar = 1};
+
+
 
 
     public GameObject icono1;
@@ -25,8 +27,13 @@ public class MariposaGameControl : MonoBehaviour
     public GameObject icono4;
     public GameObject icono5;
     public GameObject icono6;
-
     List<GameObject> listIconos = new List<GameObject>();
+
+    Vector3 leastTop = new Vector3(0, 1.175962f, 0);
+
+    
+
+
 
 
 
@@ -115,6 +122,8 @@ public class MariposaGameControl : MonoBehaviour
 
 
 
+
+
     public void selectPregunta(int _selection){
         preguntaSelection = _selection;
     }
@@ -188,8 +197,16 @@ public class MariposaGameControl : MonoBehaviour
     public void subirIcon(int valor){
         listIconos[valor].transform.position += new Vector3(0,incrementaAltura,0);
     }
+
+
     public void bajarIcon(int valor){
-        listIconos[valor].transform.position -= new Vector3(0,decrementaAltura,0);
+        Vector3 posOG =listIconos[valor].transform.position;
+        Debug.Log(posOG.y);
+        Debug.Log(leastTop.y);
+        if(posOG.y > leastTop.y){
+            listIconos[valor].transform.position -= new Vector3(0,decrementaAltura,0);
+        }
+
     }
 
 
