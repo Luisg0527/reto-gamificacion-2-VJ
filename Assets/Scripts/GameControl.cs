@@ -60,8 +60,6 @@ public class GameControl : MonoBehaviour
     public void ActiveEndScene()
     {
         SceneManager.LoadScene("EndScene1");
-
-
     }
 
     public void GotoMenu()

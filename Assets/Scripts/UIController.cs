@@ -26,7 +26,7 @@ public class UIController : MonoBehaviour
         else
         {
             // Si no hay tiempo guardado o ya terminó el juego, empieza desde el tiempo inicial
-            time = GameControl.Instance.ansTime;
+            //time = MariposaGameControl.Instance.ansTime;
         }
 
         ActiveText();
@@ -50,7 +50,7 @@ public class UIController : MonoBehaviour
         if (time == 0)
         {
             PlayerPrefs.DeleteKey("SavedTime");
-            GameControl.Instance.ActiveEndScene();
+            //MariposaGameControl.Instance.ActiveEndScene();
         }
         else
         {
@@ -71,7 +71,7 @@ public class UIController : MonoBehaviour
         //Guardar tiempo, pregunta en la que está, etc
         PlayerPrefs.SetInt("SavedTime", time);  // Guarda el tiempo restante
         PlayerPrefs.Save();  // Asegura que se guarde
-        GameControl.Instance.GotoMenu();
+        //MariposaGameControl.Instance.GotoMenu();
     }
 
     public void GoToGame()
