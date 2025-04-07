@@ -50,7 +50,7 @@ public class UIController : MonoBehaviour
         if (time == 0)
         {
             PlayerPrefs.DeleteKey("SavedTime");
-            //MariposaGameControl.Instance.ActiveEndScene();
+            MariposaGameControl.Instance.ActiveEndScene();
         }
         else
         {
@@ -71,7 +71,7 @@ public class UIController : MonoBehaviour
         //Guardar tiempo, pregunta en la que está, etc
         PlayerPrefs.SetInt("SavedTime", time);  // Guarda el tiempo restante
         PlayerPrefs.Save();  // Asegura que se guarde
-        //MariposaGameControl.Instance.GotoMenu();
+        MariposaGameControl.Instance.GotoMenu();
     }
 
     public void GoToGame()
