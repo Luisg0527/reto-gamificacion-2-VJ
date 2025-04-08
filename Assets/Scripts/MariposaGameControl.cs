@@ -29,12 +29,17 @@ public class MariposaGameControl : MonoBehaviour
     public GameObject icono6;
     List<GameObject> listIconos = new List<GameObject>();
 
+
+
+
     Vector3 leastTop = new Vector3(0, 1.175962f, 0);
+    Vector3 leastBottom = new Vector3(0,-1.851852f,0);
+    Vector3 maxTop = new Vector3(0, 2.7f, 0);
+    Vector3 maxBottom = new Vector3(0,-0.3518519f,0);
 
     
-
-
-
+    int scoreKeeper = 0;
+    int roundTracker = 0;
 
 
 
@@ -54,6 +59,9 @@ public class MariposaGameControl : MonoBehaviour
     [SerializeField] GameObject correctIcon;
     [SerializeField] GameObject incorrectIcon;
 
+    [SerializeField] GameObject info;
+    GameObject popUp;
+
 
 
 
@@ -63,6 +71,8 @@ public class MariposaGameControl : MonoBehaviour
         StopAllCoroutines();
         PlayerPrefs.SetInt("ansTime", PlayerPrefs.GetInt("ansTime", ansTime));
 
+        
+        LoadinfoScreen();
         loadPreguntaMariposa();
         fillListaIconos();
         UpdatePregunta();
@@ -71,6 +81,8 @@ public class MariposaGameControl : MonoBehaviour
         Instance = this;
         Instance.SetReferences();
         DontDestroyOnLoad(this.gameObject);
+
+
 
     }
 
@@ -132,15 +144,22 @@ public class MariposaGameControl : MonoBehaviour
         if(preguntaPrueba.correcta == preguntaSelection){
             iconoResultado(correctIcon);
             int subir = preguntaPrueba.indicadorSubir -1;
+            scoreKeeper = scoreKeeper + 1;
+            Debug.Log(scoreKeeper);
             subirIcon(subir);
             RestartTimer();
-
         }
         else{
             iconoResultado(incorrectIcon);
             int bajar = preguntaPrueba.indicadorBajar -1;
             bajarIcon(bajar);
             RestartTimer();
+        }
+
+        roundTracker = roundTracker + 1;
+
+        if(roundTracker == 10){
+            ActiveEndScene();
         }
         
     }
@@ -195,17 +214,37 @@ public class MariposaGameControl : MonoBehaviour
 
 
     public void subirIcon(int valor){
-        listIconos[valor].transform.position += new Vector3(0,incrementaAltura,0);
+        
+        Vector3 posOG =listIconos[valor].transform.position;
+
+        if(valor == 0| valor ==1| valor==2){
+            if(posOG.y < maxTop.y){
+                listIconos[valor].transform.position += new Vector3(0,incrementaAltura,0);
+            }
+        }  
+        else{
+            if(posOG.y < leastBottom.y){
+                listIconos[valor].transform.position -= new Vector3(0,decrementaAltura,0);
+            }
+        }
+
     }
 
 
     public void bajarIcon(int valor){
         Vector3 posOG =listIconos[valor].transform.position;
-        Debug.Log(posOG.y);
-        Debug.Log(leastTop.y);
-        if(posOG.y > leastTop.y){
-            listIconos[valor].transform.position -= new Vector3(0,decrementaAltura,0);
+        
+        if(valor == 0| valor ==1| valor==2){
+            if(posOG.y > leastTop.y){
+                listIconos[valor].transform.position -= new Vector3(0,decrementaAltura,0);
+            }
+        }  
+        else{
+            if(posOG.y > leastBottom.y){
+                listIconos[valor].transform.position -= new Vector3(0,decrementaAltura,0);
+            }
         }
+
 
     }
 
@@ -221,6 +260,23 @@ public class MariposaGameControl : MonoBehaviour
     Destroy(popUpCorrect, 1f);
 }
 
+    public void LoadinfoScreen(){
+
+        Vector3 centerScreen = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, Camera.main.nearClipPlane + 1));
+        popUp = Instantiate(info, centerScreen, Quaternion.identity);
+        popUp.transform.localScale = new Vector3(1f, 1f, 1f); 
+        popUp.gameObject.SetActive(false);
+
+    }
+
+
+    public void infoScreenOpen(){
+        popUp.gameObject.SetActive(true);
+    }
+
+    public void infoScreenClose(GameObject popUp){
+        popUp.gameObject.SetActive(false);
+    }
 
 
 
@@ -230,6 +286,7 @@ public class MariposaGameControl : MonoBehaviour
 
     public void ActiveEndScene()
     {
+        PlayerPrefs.SetInt("scoreKeeper",scoreKeeper);
         SceneManager.LoadScene("EndScene1");
 
     }
