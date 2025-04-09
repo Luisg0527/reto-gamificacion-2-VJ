@@ -11,11 +11,13 @@ public class ExpPend_UIControl : MonoBehaviour
     int time;
     public Button startBtn;
     public Image startBoard;
+    IEnumerator write_text;
 
     // Define el tiempo y las vidas
     void Start()
     {
-        StartCoroutine(WriteText());
+        write_text = WriteText();
+        StartCoroutine(write_text);
         time = ExpPend_GameControl.instance.timeToWin;
         //ActiveText();
     }
@@ -29,6 +31,8 @@ public class ExpPend_UIControl : MonoBehaviour
     public void StartTimer(){
         startBtn.gameObject.SetActive(false);
         startBoard.gameObject.SetActive(false);
+        StopCoroutine(write_text);
+        startText.text = "...";
         StartCoroutine(MatchTime());
     }
 
