@@ -21,14 +21,11 @@ public class ExpPend_CandidateController : MonoBehaviour
     List<Sprite> sprtList = new List<Sprite>();
     int lastSprite;
 
-    
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         sprtList.AddRange(new Sprite[] { sprt1, sprt2, sprt3, sprt4, sprt5, sprt6, sprt8, sprt9 });
-        PlayerPrefs.SetInt("lastSprite", 1);
+        PlayerPrefs.SetInt("lastSprite", 0);
         spriteRenderer = GetComponent<SpriteRenderer>();
         animatorController = GetComponent<Animator>();
         UpdateAnimation(candAnimations._candIn);
@@ -40,16 +37,35 @@ public class ExpPend_CandidateController : MonoBehaviour
         
     }
 
+    public void AceptarCandidato() {
+        StartCoroutine(CambiarCandidatoCoroutine());
+    }
+
     public void RechazarCandidato() {
+        StartCoroutine(CambiarCandidatoCoroutine());
+    }
+
+    IEnumerator CambiarCandidatoCoroutine() {
         int currSprite = Random.Range(1,9);
         while(currSprite == PlayerPrefs.GetInt("lastSprite", lastSprite)) {
             currSprite = Random.Range(1,9);
         }
         PlayerPrefs.SetInt("lastSprite", currSprite);
+        Debug.Log("curr" + currSprite);
+        Debug.Log("last" + PlayerPrefs.GetInt("lastSprite", lastSprite));
+        UpdateAnimation(candAnimations._candOut);
+        yield return new WaitForSeconds(1f);
+        spriteRenderer.sprite = sprtList[currSprite - 1];
+        UpdateAnimation(candAnimations._candIn);
+    }
+
+    private void WaitForSecondsRealtime(float v)
+    {
+        throw new System.NotImplementedException();
     }
 
     // public void ContratarCandidato() {
-        
+
     // }
 
     public enum candAnimations
@@ -69,8 +85,8 @@ public class ExpPend_CandidateController : MonoBehaviour
                 animatorController.SetBool("SpriteOut", false);
                 break;
             case candAnimations._candOut:
-                animatorController.SetBool("degGoingOut", true);
-                animatorController.SetBool("SpriteOut", false);
+                animatorController.SetBool("SpriteOut", true);
+                animatorController.SetBool("SpriteIn", false);
                 break;
         }
     }
