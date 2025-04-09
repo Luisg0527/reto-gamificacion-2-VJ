@@ -10,9 +10,8 @@ public class ExpPend_GameControl : MonoBehaviour
 
     public void Awake()
     {
-        PlayerPrefs.DeleteKey("timeToWin");
         StopAllCoroutines();
-        PlayerPrefs.SetInt("timeToWin", PlayerPrefs.GetInt("timeToWin", timeToWin));
+        PlayerPrefs.SetInt("timeToWin", timeToWin);
         instance = this;
         instance.SetReference();
         DontDestroyOnLoad(this.gameObject);
@@ -24,15 +23,7 @@ public class ExpPend_GameControl : MonoBehaviour
             uiController = FindFirstObjectByType<ExpPend_UIControl>();
         }
         timeToWin = PlayerPrefs.GetInt("timeToWin", 60);
-        //init();
     }
-    
-    // void init ()
-    // {
-    //     if(uiController != null){
-    //         uiController.StartTimer();
-    //     }
-    // }
 
     public void BeginPlaying() {
         uiController.StartTimer();
