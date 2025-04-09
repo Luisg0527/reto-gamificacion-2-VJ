@@ -26,7 +26,7 @@ public class UIController : MonoBehaviour
         else
         {
             // Si no hay tiempo guardado o ya terminó el juego, empieza desde el tiempo inicial
-            //time = MariposaGameControl.Instance.ansTime;
+            time = MariposaGameControl.Instance.ansTime;
         }
 
         ActiveText();
