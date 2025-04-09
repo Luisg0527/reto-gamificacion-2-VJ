@@ -6,17 +6,20 @@ using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using UnityEngine.Networking;
+using System.Diagnostics;
+using Newtonsoft.Json;
 
 public class MariposaGameControl : MonoBehaviour
 {
 
 
-    public int ansTime = 15;
+    public int ansTime = 25;
     static public MariposaGameControl Instance;
     public UIController UIController;
     public SFXManager SFXManager;
 
-    preguntaMariposa preguntaPrueba = new preguntaMariposa{idPregunta = 1, pregunta = "Si Aa balalalsaldsaldsa", respuesta1 = "5 ", respuesta2 = "1 ", respuesta3 = " 6 ", correcta = 3, indicadorSubir = 1, indicadorBajar = 1};
+    preguntaMariposa pregunta = new preguntaMariposa{idPregunta = 1, pregunta = "Default", respuesta1 = "Default ", respuesta2 = "Default ", respuesta3 = "Default ", correcta = 1, indicadorSubir = 1, indicadorBajar = 1};
 
 
 
@@ -32,14 +35,15 @@ public class MariposaGameControl : MonoBehaviour
 
 
 
-    Vector3 leastTop = new Vector3(0, 1.175962f, 0);
+    Vector3 leastTop = new Vector3(0, 1.675926f, 0);
     Vector3 leastBottom = new Vector3(0,-1.851852f,0);
-    Vector3 maxTop = new Vector3(0, 2.7f, 0);
-    Vector3 maxBottom = new Vector3(0,-0.3518519f,0);
+    Vector3 maxTop = new Vector3(0, 2.675926f, 0);
+    Vector3 maxBottom = new Vector3(0,0.1481481f,0);
 
     
     int scoreKeeper = 0;
     int roundTracker = 0;
+    int streakTracker =0;
 
 
 
@@ -59,8 +63,6 @@ public class MariposaGameControl : MonoBehaviour
     [SerializeField] GameObject correctIcon;
     [SerializeField] GameObject incorrectIcon;
 
-    [SerializeField] GameObject info;
-    GameObject popUp;
 
 
 
@@ -69,14 +71,11 @@ public class MariposaGameControl : MonoBehaviour
     public void Awake()
     {
         StopAllCoroutines();
-        PlayerPrefs.SetInt("ansTime", PlayerPrefs.GetInt("ansTime", ansTime));
+        PlayerPrefs.SetInt("ansTime",ansTime);
 
         
-        LoadinfoScreen();
-        loadPreguntaMariposa();
+        StartCoroutine(GetPreguntaMariposa());
         fillListaIconos();
-        UpdatePregunta();
-
 
         Instance = this;
         Instance.SetReferences();
@@ -97,7 +96,7 @@ public class MariposaGameControl : MonoBehaviour
         {
             SFXManager = FindFirstObjectByType<SFXManager>();
         }
-        ansTime = PlayerPrefs.GetInt("ansTime", 15);
+        PlayerPrefs.SetInt("ansTime", ansTime);
         init();
     }
 
@@ -141,23 +140,24 @@ public class MariposaGameControl : MonoBehaviour
     }
 
     public void confirmRespuesta(){
-        if(preguntaPrueba.correcta == preguntaSelection){
+        if(pregunta.correcta == preguntaSelection){
             iconoResultado(correctIcon);
-            int subir = preguntaPrueba.indicadorSubir -1;
+            int subir = pregunta.indicadorSubir -1;
             scoreKeeper = scoreKeeper + 1;
-            Debug.Log(scoreKeeper);
+            streakTracker = streakTracker +1;
             subirIcon(subir);
             RestartTimer();
         }
         else{
             iconoResultado(incorrectIcon);
-            int bajar = preguntaPrueba.indicadorBajar -1;
+            int bajar = pregunta.indicadorBajar -1;
+            streakTracker = 0;
             bajarIcon(bajar);
             RestartTimer();
         }
 
         roundTracker = roundTracker + 1;
-
+        StartCoroutine(GetPreguntaMariposa());
         if(roundTracker == 10){
             ActiveEndScene();
         }
@@ -175,30 +175,43 @@ public class MariposaGameControl : MonoBehaviour
 
 
 
-    public void loadPreguntaMariposa(){
-        // if{
+    IEnumerator GetPreguntaMariposa(){
 
-        // }
-        // else{
-            // List<preguntaMariposa> listPreguntas = new List<preguntaMariposa>();
+        int Randomint = UnityEngine.Random.Range(1,26);  
 
-            // bookList = JsonConvert.DeserializeObject<List<libro>>(web.downloadHandler.text);
+        string JSONurl = "https://10.22.215.115:7128/Oxxo/GetPreguntaConId/" + Randomint;
+        UnityWebRequest web = UnityWebRequest.Get(JSONurl);
+        web.certificateHandler = new ForceAcceptAll();
+        yield return web.SendWebRequest();
 
-        // }
+        if (web.result != UnityWebRequest.Result.Success){
+            UnityEngine.Debug.Log("Error API: " + web.error);
+        }
+        else{
+            pregunta = JsonConvert.DeserializeObject<preguntaMariposa>(web.downloadHandler.text);
+              UpdatePregunta();
+        }
     }
+
 
 
 
 
     public void UpdatePregunta(){
 
-        preguntaText.text = preguntaPrueba.pregunta;
+        if (preguntaText != null)
+            preguntaText.text = pregunta.pregunta;
 
-        respuesta1Text.text = preguntaPrueba.respuesta1;
+        if (respuesta1Text != null)
+            respuesta1Text.text = pregunta.respuesta1;
 
-        respuesta2Text.text = preguntaPrueba.respuesta2;
+        if (respuesta2Text != null)
+            respuesta2Text.text = pregunta.respuesta2;
 
-        respuesta3Text.text = preguntaPrueba.respuesta3;
+        if (respuesta3Text != null)
+            respuesta3Text.text = pregunta.respuesta3;
+
+
     }
 
 
@@ -217,14 +230,16 @@ public class MariposaGameControl : MonoBehaviour
         
         Vector3 posOG =listIconos[valor].transform.position;
 
+        UnityEngine.Debug.Log(posOG.y);
+
         if(valor == 0| valor ==1| valor==2){
             if(posOG.y < maxTop.y){
                 listIconos[valor].transform.position += new Vector3(0,incrementaAltura,0);
             }
         }  
         else{
-            if(posOG.y < leastBottom.y){
-                listIconos[valor].transform.position -= new Vector3(0,decrementaAltura,0);
+            if(posOG.y < maxBottom.y){
+                listIconos[valor].transform.position += new Vector3(0,incrementaAltura,0);
             }
         }
 
@@ -233,6 +248,7 @@ public class MariposaGameControl : MonoBehaviour
 
     public void bajarIcon(int valor){
         Vector3 posOG =listIconos[valor].transform.position;
+        UnityEngine.Debug.Log(posOG.y);
         
         if(valor == 0| valor ==1| valor==2){
             if(posOG.y > leastTop.y){
@@ -257,26 +273,8 @@ public class MariposaGameControl : MonoBehaviour
 
     popUpCorrect.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f); 
 
-    Destroy(popUpCorrect, 1f);
+    Destroy(popUpCorrect, 0.5f);
 }
-
-    public void LoadinfoScreen(){
-
-        Vector3 centerScreen = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, Camera.main.nearClipPlane + 1));
-        popUp = Instantiate(info, centerScreen, Quaternion.identity);
-        popUp.transform.localScale = new Vector3(1f, 1f, 1f); 
-        popUp.gameObject.SetActive(false);
-
-    }
-
-
-    public void infoScreenOpen(){
-        popUp.gameObject.SetActive(true);
-    }
-
-    public void infoScreenClose(GameObject popUp){
-        popUp.gameObject.SetActive(false);
-    }
 
 
 
@@ -287,6 +285,7 @@ public class MariposaGameControl : MonoBehaviour
     public void ActiveEndScene()
     {
         PlayerPrefs.SetInt("scoreKeeper",scoreKeeper);
+        PlayerPrefs.SetInt("streak",streakTracker);
         SceneManager.LoadScene("EndScene1");
 
     }
