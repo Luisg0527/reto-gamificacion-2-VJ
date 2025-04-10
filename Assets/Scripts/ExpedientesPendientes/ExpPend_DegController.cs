@@ -23,10 +23,8 @@ public class ExpPend_DegController : MonoBehaviour
         Debug.Log(docPosition);
         if(docPosition < -5) {
             UpdateAnimation(degAnimations._degIn);
-            Debug.Log("In");
         }
         else {
-            Debug.Log("Out");
             UpdateAnimation(degAnimations._degOut);
         }
     }

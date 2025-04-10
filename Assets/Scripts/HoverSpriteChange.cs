@@ -13,6 +13,8 @@ public class HoverSpriteChange : MonoBehaviour
     public bool isPhoneActive = false;
     public Image startBoard;
 
+    ExpPend_UIControl UIControl;
+
     void Start()
     {
         // Get the SpriteRenderer component attached to this GameObject
@@ -48,16 +50,25 @@ public class HoverSpriteChange : MonoBehaviour
         {
             spriteRenderer.sprite = pickedUpSprite;
             isPhoneActive = true;
-            //uiController.PhoneUp();
             startBoard.gameObject.SetActive(true);
+            ExpPend_GameControl.instance.SFXManager.PhoneCallSound();
         }
         else if(spriteRenderer != null && pickedUpSprite != null && isPhoneActive) {
             spriteRenderer.sprite = normalSprite;
             isPhoneActive = false;
-            //uiController.PhoneDown();
             startBoard.gameObject.SetActive(false);
+            ExpPend_GameControl.instance.SFXManager.StopPhoneCall();
         }
     }
+
+    // public void HangUpPhone() {
+    //     if(spriteRenderer != null && pickedUpSprite != null && isPhoneActive) {
+    //         spriteRenderer.sprite = normalSprite;
+    //         isPhoneActive = false;
+    //         startBoard.gameObject.SetActive(false);
+    //         ExpPend_GameControl.instance.SFXManager.StopPhoneCall();
+    //     }
+    // }
 
     void OnMouseDown()
     {
