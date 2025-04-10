@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Building : MonoBehaviour
 {
-    public int cost = 100;
+    public int cost = 300;
     public Animator animator;
     public GameObject interactionUI;
     public GameObject minigameIcon; // Icon that shows the chosen minigame

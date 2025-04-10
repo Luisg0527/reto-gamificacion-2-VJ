@@ -94,5 +94,4 @@ public class UIController : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
     }
-
-}
+};
