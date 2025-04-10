@@ -215,6 +215,7 @@ RectTransform:
   m_Children:
   - {fileID: 1508287208}
   - {fileID: 1301576846}
+  - {fileID: 311799457}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -471,7 +472,7 @@ GameObject:
   - component: {fileID: 311799459}
   - component: {fileID: 311799458}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Monedas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -484,16 +485,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311799456}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.73483, y: 0.73483, z: 0.73483}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -9720}
+  m_LocalScale: {x: 0.50553364, y: 0.50553364, z: 0.50553364}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1301576846}
+  m_Father: {fileID: 77245982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 54.19, y: -2.21}
+  m_AnchoredPosition: {x: 790.2806, y: 428.47964}
   m_SizeDelta: {x: 311.91, y: 105.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &311799458
@@ -529,7 +530,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 7,000
+  m_Text: 0
 --- !u!222 &311799459
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -834,8 +835,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: -9720}
   m_LocalScale: {x: 0.68795997, y: 0.68795997, z: 0.68795997}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 311799457}
+  m_Children: []
   m_Father: {fileID: 77245982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2372,6 +2372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsTotal: {fileID: 1755869862}
+  coinsText: {fileID: 311799458}
   sound: {fileID: 1899032695}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

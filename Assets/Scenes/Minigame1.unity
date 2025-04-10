@@ -1245,7 +1245,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
+    m_Font: {fileID: 12800000, guid: 23a338611de13d74c8228ef02e42b4a2, type: 3}
     m_FontSize: 39
     m_FontStyle: 0
     m_BestFit: 0
@@ -2847,7 +2847,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
+    m_Font: {fileID: 12800000, guid: 23a338611de13d74c8228ef02e42b4a2, type: 3}
     m_FontSize: 39
     m_FontStyle: 0
     m_BestFit: 0
@@ -3209,13 +3209,13 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 6352d2a25deb0f14eb4609ef1f2826a6, type: 3}
   m_Resource: {fileID: 8300000, guid: 6352d2a25deb0f14eb4609ef1f2826a6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.304
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 68
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -3548,7 +3548,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
+    m_Font: {fileID: 12800000, guid: 23a338611de13d74c8228ef02e42b4a2, type: 3}
     m_FontSize: 39
     m_FontStyle: 0
     m_BestFit: 0
@@ -4054,7 +4054,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 585188cdc4600544eb408bee749e4b3a, type: 3}
+    m_Font: {fileID: 12800000, guid: 23a338611de13d74c8228ef02e42b4a2, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0

@@ -147,7 +147,6 @@ public class MariposaGameControl : MonoBehaviour
         }
 
         roundTracker = roundTracker + 1;
-        StartCoroutine(GetPreguntaMariposa());
         if(roundTracker == 10){
             ActiveEndScene();
         }
@@ -156,6 +155,7 @@ public class MariposaGameControl : MonoBehaviour
 
 
 public void preguntaCorrecta(){
+    StartCoroutine(GetPreguntaMariposa());
     iconoResultado(correctIcon);
     soundManager.respuestaCorrecta();
     int subir = pregunta.indicadorSubir -1;
@@ -166,6 +166,7 @@ public void preguntaCorrecta(){
 }
 
 public void preguntaIncorrecta(){
+    StartCoroutine(GetPreguntaMariposa());
     iconoResultado(incorrectIcon);
     soundManager.respuestaIncorrecta();
     int bajar = pregunta.indicadorBajar -1;
