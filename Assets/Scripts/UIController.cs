@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
@@ -13,6 +14,8 @@ public class UIController : MonoBehaviour
     public TMP_Text respuesta3Text;
     public TMP_Text respuesta4Text;
 
+    private Coroutine timerCoroutine;
+
     int time;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,7 +29,7 @@ public class UIController : MonoBehaviour
         else
         {
             // Si no hay tiempo guardado o ya terminó el juego, empieza desde el tiempo inicial
-            time = GameControl.Instance.ansTime;
+            time = MariposaGameControl.Instance.ansTime;
         }
 
         ActiveText();
@@ -37,28 +40,42 @@ public class UIController : MonoBehaviour
         timeText.text = time.ToString();
     }
 
+
+
     public void StartTimer()
     {
-        StartCoroutine(MatchTime());
+        if (timerCoroutine != null)
+            StopCoroutine(timerCoroutine); 
+
+        time = PlayerPrefs.GetInt("ansTime", MariposaGameControl.Instance.ansTime); 
+        ActiveText(); // Update the UI
+        timerCoroutine = StartCoroutine(MatchTime()); 
+    }
+
+    public void StopTimer()
+    {
+        if (timerCoroutine != null)
+        {
+            StopCoroutine(timerCoroutine); 
+            timerCoroutine = null;
+        }
     }
 
     IEnumerator MatchTime()
     {
-        yield return new WaitForSeconds(1);
-        time -= 1;
-        ActiveText();
-        if (time == 0)
+        while (time > 0)
         {
-            PlayerPrefs.DeleteKey("SavedTime");
-            GameControl.Instance.ActiveEndScene();
+            yield return new WaitForSeconds(1);
+            time--;
+            ActiveText();
+            PlayerPrefs.SetInt("SavedTime", time);
+            PlayerPrefs.Save();  
         }
-        else
-        {
-            PlayerPrefs.SetInt("SavedTime", time);  // Guarda el tiempo en cada iteración
-            PlayerPrefs.Save();
-            StartCoroutine(MatchTime());
-        }
+
+        PlayerPrefs.DeleteKey("SavedTime");
+        MariposaGameControl.Instance.preguntaIncorrecta();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -68,14 +85,12 @@ public class UIController : MonoBehaviour
 
     public void ReturnToMenu()
     {
-        //Guardar tiempo, pregunta en la que está, etc
-        PlayerPrefs.SetInt("SavedTime", time);  // Guarda el tiempo restante
-        PlayerPrefs.Save();  // Asegura que se guarde
-        GameControl.Instance.GotoMenu();
+        PlayerPrefs.SetInt("SavedTime", time);  
+        PlayerPrefs.Save(); 
+        MariposaGameControl.Instance.GotoMenu();
     }
 
     public void GoToGame()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
     }
-}

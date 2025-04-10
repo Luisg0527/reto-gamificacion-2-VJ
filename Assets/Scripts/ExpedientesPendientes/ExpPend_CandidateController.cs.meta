@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 3765bbc27846549efa366ffdadfaef33
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Candidate: {instanceID: 0}
+  - sprt1: {fileID: 2579065011197106167, guid: 8266fdd5d66734e1399d80e98671cda5, type: 3}
+  - sprt2: {instanceID: 0}
+  - sprt3: {instanceID: 0}
+  - sprt4: {instanceID: 0}
+  - sprt5: {instanceID: 0}
+  - sprt6: {instanceID: 0}
+  - sprt8: {instanceID: 0}
+  - sprt9: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
