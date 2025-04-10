@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
@@ -72,7 +73,7 @@ public class UIController : MonoBehaviour
         }
 
         PlayerPrefs.DeleteKey("SavedTime");
-        MariposaGameControl.Instance.ActiveEndScene();
+        MariposaGameControl.Instance.preguntaIncorrecta();
     }
 
 
@@ -93,4 +94,3 @@ public class UIController : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
     }
-}

@@ -3,8 +3,6 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
 
-
-
     // Método que se llama para iniciar el juego y cargar la escena "SampleScene"
     public void StartToplay()
     {
@@ -34,6 +32,11 @@ public class Menu : MonoBehaviour
     public void GotoMenu()
     {
         SceneManager.LoadScene("MenuScene");
+    }
+
+    public void GotoMenu2()
+    {
+        SceneManager.LoadScene("MenuScene2");
     }
 
     // Método que se llama para salir del juego
