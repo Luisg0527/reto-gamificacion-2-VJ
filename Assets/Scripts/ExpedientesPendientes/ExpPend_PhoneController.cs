@@ -17,14 +17,6 @@ public class ExpPend_PhoneController : MonoBehaviour
         }
     }
 
-    // public void PickedUpPhone() {
-    //     if (spriteRenderer != null && pickedUpSprite != null)
-    //     {
-    //         Debug.Log("Si jala");
-    //         spriteRenderer.sprite = pickedUpSprite;
-    //     }
-    // }
-
     // Update is called once per frame
     void Update()
     {
