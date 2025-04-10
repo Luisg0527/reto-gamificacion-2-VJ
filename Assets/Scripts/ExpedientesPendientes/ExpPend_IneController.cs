@@ -23,10 +23,8 @@ public class ExpPend_IneController : MonoBehaviour
         Debug.Log(docPosition);
         if(docPosition < 0) {
             UpdateAnimation(docsAminations._in);
-            Debug.Log("In");
         }
         else {
-            Debug.Log("Out");
             UpdateAnimation(docsAminations._out);
         }
         

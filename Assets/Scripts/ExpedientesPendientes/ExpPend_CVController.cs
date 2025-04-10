@@ -23,10 +23,8 @@ public class ExpPend_CVController : MonoBehaviour
         Debug.Log(docPosition);
         if(docPosition < -5) {
             UpdateAnimation(cvAnimations._cvIn);
-            Debug.Log("In");
         }
         else {
-            Debug.Log("Out");
             UpdateAnimation(cvAnimations._cvOut);
         }
         

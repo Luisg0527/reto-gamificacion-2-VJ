@@ -3,7 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public int playerCoins = 500;
+    public int playerCoins = 0;
     public GameObject quitPanel;
     void Awake()
     {
@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
         else
             Destroy(gameObject);
     }
-
 
     void Start () {
         // Ocultar el panel de salida al inicio

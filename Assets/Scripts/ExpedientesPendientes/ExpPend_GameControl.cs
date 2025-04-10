@@ -8,6 +8,10 @@ public class ExpPend_GameControl : MonoBehaviour
     static public ExpPend_GameControl instance;
     public ExpPend_UIControl uiController;
 
+    public ExpPend_SFXManager SFXManager;
+
+    private int totalContrataciones;
+
     public void Awake()
     {
         StopAllCoroutines();
@@ -21,6 +25,9 @@ public class ExpPend_GameControl : MonoBehaviour
     {
         if (uiController == null){
             uiController = FindFirstObjectByType<ExpPend_UIControl>();
+        }
+        if (SFXManager == null) {
+            SFXManager = FindFirstObjectByType<ExpPend_SFXManager>();
         }
         timeToWin = PlayerPrefs.GetInt("timeToWin", 60);
     }
