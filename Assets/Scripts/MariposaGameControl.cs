@@ -14,10 +14,10 @@ public class MariposaGameControl : MonoBehaviour
 {
 
 
-    public int ansTime = 25;
+    public int ansTime = 20;
     static public MariposaGameControl Instance;
     public UIController UIController;
-    public SFXManager SFXManager;
+    public SFXManager soundManager;
 
     preguntaMariposa pregunta = new preguntaMariposa{idPregunta = 1, pregunta = "Default", respuesta1 = "Default ", respuesta2 = "Default ", respuesta3 = "Default ", correcta = 1, indicadorSubir = 1, indicadorBajar = 1};
 
@@ -35,9 +35,9 @@ public class MariposaGameControl : MonoBehaviour
 
 
 
-    Vector3 leastTop = new Vector3(0, 1.675926f, 0);
-    Vector3 leastBottom = new Vector3(0,-1.851852f,0);
-    Vector3 maxTop = new Vector3(0, 2.675926f, 0);
+    Vector3 leastTop = new Vector3(0, 1.175926f, 0);
+    Vector3 leastBottom = new Vector3(0,-1.351852f,0);
+    Vector3 maxTop = new Vector3(0, 3.175926f, 0);
     Vector3 maxBottom = new Vector3(0,0.1481481f,0);
 
     
@@ -47,8 +47,7 @@ public class MariposaGameControl : MonoBehaviour
 
 
 
-    public float incrementaAltura = 0.5f;
-    public float decrementaAltura = 0.5f;
+    public float cambioAltura = 0.5f;
 
 
 
@@ -92,9 +91,9 @@ public class MariposaGameControl : MonoBehaviour
         {
             UIController = FindFirstObjectByType<UIController>();
         }
-        if (SFXManager == null)
+        if (soundManager == null)
         {
-            SFXManager = FindFirstObjectByType<SFXManager>();
+            soundManager = FindFirstObjectByType<SFXManager>();
         }
         PlayerPrefs.SetInt("ansTime", ansTime);
         init();
@@ -141,19 +140,10 @@ public class MariposaGameControl : MonoBehaviour
 
     public void confirmRespuesta(){
         if(pregunta.correcta == preguntaSelection){
-            iconoResultado(correctIcon);
-            int subir = pregunta.indicadorSubir -1;
-            scoreKeeper = scoreKeeper + 1;
-            streakTracker = streakTracker +1;
-            subirIcon(subir);
-            RestartTimer();
+            preguntaCorrecta();
         }
         else{
-            iconoResultado(incorrectIcon);
-            int bajar = pregunta.indicadorBajar -1;
-            streakTracker = 0;
-            bajarIcon(bajar);
-            RestartTimer();
+            preguntaIncorrecta();
         }
 
         roundTracker = roundTracker + 1;
@@ -164,6 +154,25 @@ public class MariposaGameControl : MonoBehaviour
         
     }
 
+
+public void preguntaCorrecta(){
+    iconoResultado(correctIcon);
+    soundManager.respuestaCorrecta();
+    int subir = pregunta.indicadorSubir -1;
+    scoreKeeper = scoreKeeper + 1;
+    streakTracker = streakTracker +1;
+    subirIcon(subir);
+    RestartTimer();
+}
+
+public void preguntaIncorrecta(){
+    iconoResultado(incorrectIcon);
+    soundManager.respuestaIncorrecta();
+    int bajar = pregunta.indicadorBajar -1;
+    streakTracker = 0;
+    bajarIcon(bajar);
+    RestartTimer();
+}
 
 
 
@@ -230,16 +239,14 @@ public class MariposaGameControl : MonoBehaviour
         
         Vector3 posOG =listIconos[valor].transform.position;
 
-        UnityEngine.Debug.Log(posOG.y);
-
         if(valor == 0| valor ==1| valor==2){
             if(posOG.y < maxTop.y){
-                listIconos[valor].transform.position += new Vector3(0,incrementaAltura,0);
+                listIconos[valor].transform.position += new Vector3(0,cambioAltura,0);
             }
         }  
         else{
             if(posOG.y < maxBottom.y){
-                listIconos[valor].transform.position += new Vector3(0,incrementaAltura,0);
+                listIconos[valor].transform.position += new Vector3(0,cambioAltura,0);
             }
         }
 
@@ -248,16 +255,15 @@ public class MariposaGameControl : MonoBehaviour
 
     public void bajarIcon(int valor){
         Vector3 posOG =listIconos[valor].transform.position;
-        UnityEngine.Debug.Log(posOG.y);
         
         if(valor == 0| valor ==1| valor==2){
             if(posOG.y > leastTop.y){
-                listIconos[valor].transform.position -= new Vector3(0,decrementaAltura,0);
+                listIconos[valor].transform.position -= new Vector3(0,cambioAltura,0);
             }
         }  
         else{
             if(posOG.y > leastBottom.y){
-                listIconos[valor].transform.position -= new Vector3(0,decrementaAltura,0);
+                listIconos[valor].transform.position -= new Vector3(0,cambioAltura,0);
             }
         }
 

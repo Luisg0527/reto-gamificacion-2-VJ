@@ -72,7 +72,7 @@ public class UIController : MonoBehaviour
         }
 
         PlayerPrefs.DeleteKey("SavedTime");
-        MariposaGameControl.Instance.ActiveEndScene();
+        MariposaGameControl.Instance.preguntaIncorrecta();
     }
 
 

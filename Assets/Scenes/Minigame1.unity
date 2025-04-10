@@ -1282,8 +1282,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 39, y: -1.7683}
-  m_SizeDelta: {x: 853.38, y: 151.72}
+  m_AnchoredPosition: {x: 19.5, y: -1.7683}
+  m_SizeDelta: {x: 814.38, y: 151.72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &479772745
 GameObject:
@@ -2815,8 +2815,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 42, y: 1.77}
-  m_SizeDelta: {x: 853.38, y: 151.72}
+  m_AnchoredPosition: {x: 21, y: 1.77}
+  m_SizeDelta: {x: 811.38, y: 151.72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1452561092
 CanvasRenderer:
@@ -3306,8 +3306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   final: {fileID: 0}
-  CorrAns: {fileID: 0}
-  IncorAns: {fileID: 0}
+  CorrAns: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
+  IncorAns: {fileID: 8300000, guid: 72127805eb2bc4e7fbf2e02eca266cfa, type: 3}
 --- !u!1 &1795161685
 GameObject:
   m_ObjectHideFlags: 0
@@ -4113,17 +4113,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd8df447fd683c344b722d12da038f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ansTime: 25
+  ansTime: 20
   UIController: {fileID: 1517165542}
-  SFXManager: {fileID: 1765972518}
+  soundManager: {fileID: 0}
   icono1: {fileID: 227604360}
   icono2: {fileID: 59014663}
   icono3: {fileID: 409929608}
   icono4: {fileID: 735401306}
   icono5: {fileID: 94194646}
   icono6: {fileID: 1249646111}
-  incrementaAltura: 0.5
-  decrementaAltura: 0.5
+  cambioAltura: 0.5
   preguntaText: {fileID: 2047050640}
   respuesta1Text: {fileID: 1899334298}
   respuesta2Text: {fileID: 1452561093}
