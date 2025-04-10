@@ -32,11 +32,12 @@ public class InicioSesion : MonoBehaviour
         string passInput = passwordField.text;
 
         StartCoroutine(VerificarUsuario(userInput, passInput));
+        StartCoroutine(GetUserInfo(userInput));
     }
 
 
     IEnumerator VerificarUsuario (string usr, string contra) {
-        string JSONurl = "https://192.168.1.78:7128/Oxxo/VerificarUsuario/" + usr + "/" + contra;
+        string JSONurl = "https://10.22.215.115:7128/Oxxo/VerificarUsuario/" + usr + "/" + contra;
         UnityWebRequest web = UnityWebRequest.Get(JSONurl);
         web.certificateHandler = new ForceAcceptAll();
         yield return web.SendWebRequest ();
@@ -52,7 +53,7 @@ public class InicioSesion : MonoBehaviour
     }
 
     IEnumerator GetUserInfo (string userName) {
-        string JSONurl = "https://192.168.1.78:7128/Oxxo/GetUsuario/" + userName;
+        string JSONurl = "https://10.22.215.115:7128/Oxxo/GetUsuario/" + userName;
         UnityWebRequest web = UnityWebRequest.Get(JSONurl);
         web.certificateHandler = new ForceAcceptAll();
         yield return web.SendWebRequest ();
@@ -84,5 +85,6 @@ public class InicioSesion : MonoBehaviour
         PlayerPrefs.SetInt("usuario_id", usr1.id_usuario);
         PlayerPrefs.SetInt("gameCoins", usr1.monedas);
         PlayerPrefs.SetInt("nivel", usr1.nivel);
+        Debug.Log(usr1.monedas);
     }
 }

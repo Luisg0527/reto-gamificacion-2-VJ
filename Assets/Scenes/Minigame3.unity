@@ -2375,7 +2375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c926592974a42eab39df7ef49da879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToWin: 120
+  timeToWin: 3
   uiController: {fileID: 1203140992}
   SFXManager: {fileID: 1753618986}
 --- !u!4 &923315743
