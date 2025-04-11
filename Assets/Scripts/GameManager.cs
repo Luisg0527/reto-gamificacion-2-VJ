@@ -46,10 +46,11 @@ public class GameManager : MonoBehaviour
 
     public void SpendCoins(int amount)
     {
+        Debug.Log(amount);
+        int coinsAux = PlayerPrefs.GetInt("gameCoins") - amount;
         if (HasEnoughCoins(amount))
         {
-            playerCoins = playerCoins- amount;
-            PlayerPrefs.SetInt("gameCoins",playerCoins);
+            PlayerPrefs.SetInt("gameCoins", coinsAux);
             GetCoins();
         }
     }
