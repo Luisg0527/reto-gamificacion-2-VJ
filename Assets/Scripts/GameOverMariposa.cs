@@ -20,9 +20,8 @@ public class GameOverMariposa : MonoBehaviour
     {
         PlayerPrefs.SetInt("idUsuario",1);
         coins = (PlayerPrefs.GetInt("scoreKeeper") * (PlayerPrefs.GetInt("streak")/10 +1 ))*2;
-
-        MandarMonedas(coins);
-        coinsText.text = coins.ToString();
+        PlayerPrefs.SetInt("gameCoins",coins+ PlayerPrefs.GetInt("gameCoins"));
+        coinsText.text = "+"+coins.ToString();
         pointsTotal.text = PlayerPrefs.GetInt("scoreKeeper")+"/10";
         //Poner cantidad de respuestas correctas
         sound.finalSound();

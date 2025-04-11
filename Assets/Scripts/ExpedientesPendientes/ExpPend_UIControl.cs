@@ -111,7 +111,7 @@ public class ExpPend_UIControl : MonoBehaviour
     }
 
     IEnumerator GetCandidateInfo (int id) {
-        string JSONurl = "https://10.22.215.115:7128/Oxxo/GetCandidato/" + id;
+        string JSONurl = "https://192.168.1.78:7128/Oxxo/GetCandidato/" + id;
         UnityWebRequest web = UnityWebRequest.Get(JSONurl);
         web.certificateHandler = new ForceAcceptAll();
         yield return web.SendWebRequest ();

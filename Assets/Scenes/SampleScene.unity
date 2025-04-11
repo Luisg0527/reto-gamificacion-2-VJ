@@ -1367,6 +1367,7 @@ MonoBehaviour:
   animator: {fileID: 590621795}
   interactionUI: {fileID: 210564446}
   minigameIcon: {fileID: 1483445461}
+  idTienda: 6
 --- !u!61 &590621798
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2152,6 +2153,7 @@ MonoBehaviour:
   animator: {fileID: 743533272}
   interactionUI: {fileID: 1819181510}
   minigameIcon: {fileID: 517809611}
+  idTienda: 3
 --- !u!61 &743533275
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2404,6 +2406,7 @@ MonoBehaviour:
   animator: {fileID: 772017179}
   interactionUI: {fileID: 748096109}
   minigameIcon: {fileID: 1652312534}
+  idTienda: 2
 --- !u!61 &772017182
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3251,6 +3254,7 @@ MonoBehaviour:
   animator: {fileID: 965963669}
   interactionUI: {fileID: 866841388}
   minigameIcon: {fileID: 1447020401}
+  idTienda: 4
 --- !u!61 &965963672
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3928,6 +3932,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1449369409}
+  - component: {fileID: 1449369410}
   m_Layer: 0
   m_Name: oxxos
   m_TagString: Untagged
@@ -3956,6 +3961,24 @@ Transform:
   - {fileID: 590621794}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1449369410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449369408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d01acd93e58964ea69425ac04fe84f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oxxo1: {fileID: 1547345402}
+  oxxo2: {fileID: 772017181}
+  oxxo3: {fileID: 743533274}
+  oxxo4: {fileID: 965963671}
+  oxxo5: {fileID: 2072357757}
+  oxxo6: {fileID: 590621797}
 --- !u!1 &1463165150
 GameObject:
   m_ObjectHideFlags: 0
@@ -4538,6 +4561,7 @@ MonoBehaviour:
   animator: {fileID: 1547345404}
   interactionUI: {fileID: 980303166}
   minigameIcon: {fileID: 602750451}
+  idTienda: 1
 --- !u!61 &1547345403
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5726,6 +5750,7 @@ MonoBehaviour:
   animator: {fileID: 2072357755}
   interactionUI: {fileID: 1509313291}
   minigameIcon: {fileID: 444558058}
+  idTienda: 5
 --- !u!61 &2072357758
 BoxCollider2D:
   m_ObjectHideFlags: 0
