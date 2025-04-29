@@ -38,6 +38,10 @@ public class Building : MonoBehaviour
         }
     }
 
+    public void CancelarCompra() {
+        interactionUI.SetActive(false);
+    }
+
     public void BuyBuilding()
     {
         if (GameManager.instance.HasEnoughCoins(cost))
@@ -82,7 +86,7 @@ public class Building : MonoBehaviour
 
     [System.Obsolete]
     IEnumerator ComprarTienda (int idUsr, int idTiend) {
-        string JSONurl = "https://192.168.1.78:7128/Oxxo/ComprarTienda/" + idUsr + "/" + idTiend;
+        string JSONurl = "https://10.22.210.190:7128/Oxxo/ComprarTienda/" + idUsr + "/" + idTiend;
         UnityWebRequest web = UnityWebRequest.Post(JSONurl," ");
         web.certificateHandler = new ForceAcceptAll();
         yield return web.SendWebRequest ();
@@ -90,5 +94,13 @@ public class Building : MonoBehaviour
         if (web.result != UnityWebRequest.Result.Success) {
             UnityEngine.Debug.Log("Error API: " + web.error);
         }
+    }
+
+    IEnumerator MandarMonedas(int nCoins){
+        byte[] bodyData = new byte[0];
+        string JSONurl = "https://10.22.210.190:7128/Oxxo/UpdateCoins/"+ nCoins + "/" + PlayerPrefs.GetInt("idUsuario");
+        UnityWebRequest web = UnityWebRequest.Put(JSONurl,bodyData);
+        web.certificateHandler = new ForceAcceptAll();
+        yield return web.SendWebRequest();
     }
 }

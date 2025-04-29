@@ -44,9 +44,11 @@ public class GameOverMariposa : MonoBehaviour
         //Application.Quit();
     }
 
+
     IEnumerator MandarMonedas(int nCoins){
-        string JSONurl = "https://10.22.215.115:7128/Oxxo/UpdateCoins/"+ nCoins + "/" + PlayerPrefs.GetInt("idUsuario");
-        UnityWebRequest web = UnityWebRequest.Get(JSONurl);
+        byte[] bodyData = new byte[0];
+        string JSONurl = "https://10.22.210.190:7128/Oxxo/UpdateCoins/"+ nCoins + "/" + PlayerPrefs.GetInt("idUsuario");
+        UnityWebRequest web = UnityWebRequest.Put(JSONurl,bodyData);
         web.certificateHandler = new ForceAcceptAll();
         yield return web.SendWebRequest();
     }
