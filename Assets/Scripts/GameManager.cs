@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         coinText.text = PlayerPrefs.GetInt("gameCoins").ToString("N0");
-        levelText.text = PlayerPrefs.GetInt("nivel").ToString();
+        levelText.text = PlayerPrefs.GetFloat("nivel").ToString();
         if (instance == null)
             instance = this;
         else
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     void Start () {
         // Ocultar el panel de salida al inicio
         quitPanel.SetActive(false);
-        
+        PlayerPrefs.SetInt("quitPanel", 0);
     }
 
     void Update () {
@@ -67,7 +67,15 @@ public class GameManager : MonoBehaviour
 
         public void ShowQuitPanel()
     {
-        quitPanel.SetActive(true);
+        if(PlayerPrefs.GetInt("quitPanel") == 0) {
+            quitPanel.SetActive(true);
+            PlayerPrefs.SetInt("quitPanel", 1);
+        }
+        else if(PlayerPrefs.GetInt("quitPanel") == 1){
+            quitPanel.SetActive(false);
+            PlayerPrefs.SetInt("quitPanel", 0);
+        }
+        
     }
 
     public void HideQuitPanel()
@@ -80,6 +88,6 @@ public class GameManager : MonoBehaviour
     }
 
     public void GetNivel(){
-        levelText.text = PlayerPrefs.GetInt("nivel").ToString();
+        levelText.text = PlayerPrefs.GetFloat("nivel").ToString();
     }
 }

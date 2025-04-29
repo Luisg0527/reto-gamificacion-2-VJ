@@ -37,7 +37,7 @@ public class BuildingManager : MonoBehaviour
     }
 
     IEnumerator GetTiendasUsuario (int id) {
-        string JSONurl = "https://192.168.1.78:7128/Oxxo/GetTiendasUsuario/" + id;
+        string JSONurl = "https://10.22.210.190:7128/Oxxo/GetTiendasUsuario/" + id;
         UnityWebRequest web = UnityWebRequest.Get(JSONurl);
         web.certificateHandler = new ForceAcceptAll();
         yield return web.SendWebRequest ();

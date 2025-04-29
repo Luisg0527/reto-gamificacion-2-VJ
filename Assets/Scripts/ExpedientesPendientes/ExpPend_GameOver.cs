@@ -1,5 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.Networking;
+using Newtonsoft.Json;
+using System.Collections;
 
 public class ExpPend_GameOver : MonoBehaviour
 {
@@ -60,6 +65,8 @@ public class ExpPend_GameOver : MonoBehaviour
             message.text = messagesArray[2];
         }
         coinsWonText.text = coinsWon.ToString();
+        PlayerPrefs.SetInt("gameCoins",coinsWon+ PlayerPrefs.GetInt("gameCoins"));
+        StartCoroutine(MandarMonedas(coinsWon));
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -79,39 +86,11 @@ public class ExpPend_GameOver : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("MenuScene");
     }
 
-    // IEnumerator GetCandidateInfo (int id) {
-    //     string JSONurl = "https://10.22.215.115:7128/Oxxo/GetCandidato/" + id;
-    //     UnityWebRequest web = UnityWebRequest.Get(JSONurl);
-    //     web.certificateHandler = new ForceAcceptAll();
-    //     yield return web.SendWebRequest ();
-
-    //     if (web.result != UnityWebRequest.Result.Success) {
-    //         UnityEngine.Debug.Log("Error API: " + web.error);
-    //     }
-    //     else {
-    //         Candidate tempCand = new Candidate();
-    //         tempCand = JsonConvert.DeserializeObject<Candidate>(web.downloadHandler.text);
-    //         LoadCandidateInfo(tempCand);
-    //     }
-    // }
-
-    // public void LoadCandidateInfo(Candidate cand1) {
-    //     currCandidate = new Candidate(cand1.id_candidato, cand1.nombre, 
-    //     cand1.domicilio, cand1.fecha_nacimiento, cand1.nombre_uni, 
-    //     cand1.carrera, cand1.llamada_recomendacion, cand1.trabajos, 
-    //     cand1.contratar);
-
-    //     string fechaStr = cand1.fecha_nacimiento.ToString("dd/MM/yyyy");
-
-    //     ineText.text = cand1.nombre + "\n\n" + cand1.domicilio + "\n\n" + fechaStr;
-
-    //     certNombre.text = cvNombre.text = cand1.nombre;
-    //     cvCarrera.text = cand1.carrera;
-    //     cvText.text = "Experiencia Laboral\n\n" + cand1.trabajos;
-    //     cvEducacion.text = "Escuela: " + cand1.nombre_uni + " / " + cand1.carrera;
-
-    //     certCarrera.text = "Por la exitosa finalización de " + cand1.carrera;
-
-    //     PlayerPrefs.SetInt("contratar", currCandidate.contratar ? 1 : 0);
-    // }
+    IEnumerator MandarMonedas(int nCoins){
+        byte[] bodyData = new byte[0];
+        string JSONurl = "https://10.22.210.190:7128/Oxxo/UpdateCoins/"+ nCoins + "/" + PlayerPrefs.GetInt("idUsuario");
+        UnityWebRequest web = UnityWebRequest.Put(JSONurl,bodyData);
+        web.certificateHandler = new ForceAcceptAll();
+        yield return web.SendWebRequest();
+    }
 }

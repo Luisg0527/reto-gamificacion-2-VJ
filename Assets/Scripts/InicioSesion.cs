@@ -37,7 +37,7 @@ public class InicioSesion : MonoBehaviour
 
 
     IEnumerator VerificarUsuario (string usr, string contra) {
-        string JSONurl = "https://192.168.1.78:7128/Oxxo/VerificarUsuario/" + usr + "/" + contra;
+        string JSONurl = "https://10.22.210.190:7128/Oxxo/VerificarUsuario/" + usr + "/" + contra;
         UnityWebRequest web = UnityWebRequest.Get(JSONurl);
         web.certificateHandler = new ForceAcceptAll();
         yield return web.SendWebRequest ();
@@ -53,7 +53,7 @@ public class InicioSesion : MonoBehaviour
     }
 
     IEnumerator GetUserInfo (string userName) {
-        string JSONurl = "https://192.168.1.78:7128/Oxxo/GetUsuario/" + userName;
+        string JSONurl = "https://10.22.210.190:7128/Oxxo/GetUsuario/" + userName;
         UnityWebRequest web = UnityWebRequest.Get(JSONurl);
         web.certificateHandler = new ForceAcceptAll();
         yield return web.SendWebRequest ();
