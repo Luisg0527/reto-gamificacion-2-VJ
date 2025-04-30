@@ -97,10 +97,21 @@ public class Building : MonoBehaviour
     }
 
     IEnumerator MandarMonedas(int nCoins){
-        byte[] bodyData = new byte[0];
+        byte[] bodyData = System.Text.Encoding.UTF8.GetBytes("{}");
         string JSONurl = "https://10.22.210.190:7128/Oxxo/UpdateCoins/"+ nCoins + "/" + PlayerPrefs.GetInt("idUsuario");
         UnityWebRequest web = UnityWebRequest.Put(JSONurl,bodyData);
         web.certificateHandler = new ForceAcceptAll();
         yield return web.SendWebRequest();
+
+        if (web.result != UnityWebRequest.Result.Success) {
+            UnityEngine.Debug.Log("Error API: " + web.error);
+        }
+        else {
+            Debug.Log("Monedas actualizadas");
+        }
+    }
+
+    public void UpdateCoinsBD(int NewCoins) {
+        StartCoroutine(MandarMonedas(NewCoins));
     }
 }

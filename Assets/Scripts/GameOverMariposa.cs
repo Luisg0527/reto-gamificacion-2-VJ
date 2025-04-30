@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System.Collections;
 
 
+
 public class GameOverMariposa : MonoBehaviour
 {
     public TMP_Text pointsTotal;
@@ -21,6 +22,9 @@ public class GameOverMariposa : MonoBehaviour
         PlayerPrefs.SetInt("idUsuario",1);
         coins = (PlayerPrefs.GetInt("scoreKeeper") * (PlayerPrefs.GetInt("streak")/10 +1 ))*2;
         PlayerPrefs.SetInt("gameCoins",coins+ PlayerPrefs.GetInt("gameCoins"));
+        StartCoroutine(MandarMonedas(PlayerPrefs.GetInt("gameCoins")));
+        PlayerPrefs.SetFloat("nivel", 1 + PlayerPrefs.GetFloat("nivel"));
+            StartCoroutine(ActualizarNivel(PlayerPrefs.GetFloat("nivel")));
         coinsText.text = "+"+coins.ToString();
         pointsTotal.text = PlayerPrefs.GetInt("scoreKeeper")+"/10";
         //Poner cantidad de respuestas correctas
@@ -40,17 +44,43 @@ public class GameOverMariposa : MonoBehaviour
 
     public void ExitGame()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #endif
         //Application.Quit();
     }
 
 
     IEnumerator MandarMonedas(int nCoins){
-        byte[] bodyData = new byte[0];
-        string JSONurl = "https://10.22.210.190:7128/Oxxo/UpdateCoins/"+ nCoins + "/" + PlayerPrefs.GetInt("idUsuario");
+        byte[] bodyData = System.Text.Encoding.UTF8.GetBytes("{}");
+        string JSONurl = "https://10.22.210.190:7128/Oxxo/UpdateCoins/"+ nCoins + "/" + PlayerPrefs.GetInt("usuario_id");
         UnityWebRequest web = UnityWebRequest.Put(JSONurl,bodyData);
         web.certificateHandler = new ForceAcceptAll();
         yield return web.SendWebRequest();
+
+        if (web.result != UnityWebRequest.Result.Success) {
+            UnityEngine.Debug.Log("Error API: " + web.error);
+        }
+        else {
+            //Debug.Log(nCoins);
+            //Debug.Log("Monedas actualizadas");
+        }
+    }
+
+    IEnumerator ActualizarNivel(float nivel){
+        byte[] bodyData = System.Text.Encoding.UTF8.GetBytes("{}");
+        string JSONurl = "https://10.22.210.190:7128/Oxxo/UpdateLevel/"+ nivel + "/" + PlayerPrefs.GetInt("usuario_id");
+        UnityWebRequest web = UnityWebRequest.Put(JSONurl,bodyData);
+        web.certificateHandler = new ForceAcceptAll();
+        yield return web.SendWebRequest();
+
+        if (web.result != UnityWebRequest.Result.Success) {
+            UnityEngine.Debug.Log("Error API: " + web.error);
+        }
+        else {
+            //Debug.Log(nCoins);
+            //Debug.Log("Monedas actualizadas");
+        }
     }
 
 }

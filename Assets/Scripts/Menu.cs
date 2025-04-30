@@ -42,7 +42,10 @@ public class Menu : MonoBehaviour
     // Método que se llama para salir del juego
     public void ExitGame(){
         // En el editor de Unity, esto detendría el modo de juego
-        UnityEditor.EditorApplication.isPlaying = false;
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+        
         
         // En una compilación, esto cerrará la aplicación
         //Application.Quit();
