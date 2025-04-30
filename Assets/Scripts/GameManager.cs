@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public GameObject quitPanel;
     public Text levelText;
     public Text coinText;
+
+    Building building;
     void Awake()
     {
         coinText.text = PlayerPrefs.GetInt("gameCoins").ToString("N0");
@@ -51,6 +53,8 @@ public class GameManager : MonoBehaviour
         if (HasEnoughCoins(amount))
         {
             PlayerPrefs.SetInt("gameCoins", coinsAux);
+            StartCoroutine(MandarMonedas(coinsAux));
+
             GetCoins();
         }
     }
@@ -89,5 +93,20 @@ public class GameManager : MonoBehaviour
 
     public void GetNivel(){
         levelText.text = PlayerPrefs.GetFloat("nivel").ToString();
+    }
+    IEnumerator MandarMonedas(int nCoins){
+        byte[] bodyData = System.Text.Encoding.UTF8.GetBytes("{}");
+        string JSONurl = "https://10.22.210.190:7128/Oxxo/UpdateCoins/"+ nCoins + "/" + PlayerPrefs.GetInt("usuario_id");
+        UnityWebRequest web = UnityWebRequest.Put(JSONurl,bodyData);
+        web.certificateHandler = new ForceAcceptAll();
+        yield return web.SendWebRequest();
+
+        if (web.result != UnityWebRequest.Result.Success) {
+            UnityEngine.Debug.Log("Error API: " + web.error);
+        }
+        else {
+            //Debug.Log(nCoins);
+            //Debug.Log("Monedas actualizadas");
+        }
     }
 }

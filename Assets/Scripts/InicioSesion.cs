@@ -59,7 +59,8 @@ public class InicioSesion : MonoBehaviour
         yield return web.SendWebRequest ();
 
         if (web.result != UnityWebRequest.Result.Success) {
-            UnityEngine.Debug.Log("Error API: " + web.error);
+            errorText.text = "Error API: " + web.error;
+
         }
         else {
             Usuario usuario = new Usuario();
@@ -84,7 +85,7 @@ public class InicioSesion : MonoBehaviour
     public void definirUsuario(Usuario usr1) {
         PlayerPrefs.SetInt("usuario_id", usr1.id_usuario);
         PlayerPrefs.SetInt("gameCoins", usr1.monedas);
-        PlayerPrefs.SetInt("nivel", usr1.nivel);
+        PlayerPrefs.SetFloat("nivel", usr1.nivel);
         Debug.Log(usr1.monedas);
     }
 }

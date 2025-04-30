@@ -33,31 +33,43 @@ public class ExpPend_GameOver : MonoBehaviour
             letterGrade.text = "A";
             coinsWon = 30;
             message.text = messagesArray[0];
+            PlayerPrefs.SetFloat("nivel", 1 + PlayerPrefs.GetFloat("nivel"));
+            StartCoroutine(ActualizarNivel(PlayerPrefs.GetFloat("nivel")));
         }
         else if (sc >= 80) {
             letterGrade.text = "B";
             coinsWon = 25;
             message.text = messagesArray[0];
+            PlayerPrefs.SetFloat("nivel", 1 + PlayerPrefs.GetFloat("nivel"));
+            StartCoroutine(ActualizarNivel(PlayerPrefs.GetFloat("nivel")));
         }
         else if (sc >= 70) {
             letterGrade.text = "C";
             coinsWon = 20;
             message.text = messagesArray[1];
+            PlayerPrefs.SetFloat("nivel", 1 + PlayerPrefs.GetFloat("nivel"));
+            StartCoroutine(ActualizarNivel(PlayerPrefs.GetFloat("nivel")));
         }
         else if (sc >= 60) {
             letterGrade.text = "D";
             coinsWon = 15;
             message.text = messagesArray[1];
+            PlayerPrefs.SetFloat("nivel", 1 + PlayerPrefs.GetFloat("nivel"));
+            StartCoroutine(ActualizarNivel(PlayerPrefs.GetFloat("nivel")));
         }
         else if (sc >= 50) {
             letterGrade.text = "E";
             coinsWon = 10;
             message.text = messagesArray[2];
+            PlayerPrefs.SetFloat("nivel", 1 + PlayerPrefs.GetFloat("nivel"));
+            StartCoroutine(ActualizarNivel(PlayerPrefs.GetFloat("nivel")));
         }
         else if (sc >= 40) {
             letterGrade.text = "F";
             coinsWon = 5;
             message.text = messagesArray[2];
+            PlayerPrefs.SetFloat("nivel", 1 + PlayerPrefs.GetFloat("nivel"));
+            StartCoroutine(ActualizarNivel(PlayerPrefs.GetFloat("nivel")));
         }
         else {
             letterGrade.text = "G";
@@ -66,7 +78,7 @@ public class ExpPend_GameOver : MonoBehaviour
         }
         coinsWonText.text = coinsWon.ToString();
         PlayerPrefs.SetInt("gameCoins",coinsWon+ PlayerPrefs.GetInt("gameCoins"));
-        StartCoroutine(MandarMonedas(coinsWon));
+        StartCoroutine(MandarMonedas(PlayerPrefs.GetInt("gameCoins")));
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -87,10 +99,34 @@ public class ExpPend_GameOver : MonoBehaviour
     }
 
     IEnumerator MandarMonedas(int nCoins){
-        byte[] bodyData = new byte[0];
-        string JSONurl = "https://10.22.210.190:7128/Oxxo/UpdateCoins/"+ nCoins + "/" + PlayerPrefs.GetInt("idUsuario");
+        byte[] bodyData = System.Text.Encoding.UTF8.GetBytes("{}");
+        string JSONurl = "https://10.22.210.190:7128/Oxxo/UpdateCoins/"+ nCoins + "/" + PlayerPrefs.GetInt("usuario_id");
         UnityWebRequest web = UnityWebRequest.Put(JSONurl,bodyData);
         web.certificateHandler = new ForceAcceptAll();
         yield return web.SendWebRequest();
+
+        if (web.result != UnityWebRequest.Result.Success) {
+            UnityEngine.Debug.Log("Error API: " + web.error);
+        }
+        else {
+            //Debug.Log(nCoins);
+            //Debug.Log("Monedas actualizadas");
+        }
+    }
+
+    IEnumerator ActualizarNivel(float nivel){
+        byte[] bodyData = System.Text.Encoding.UTF8.GetBytes("{}");
+        string JSONurl = "https://10.22.210.190:7128/Oxxo/UpdateLevel/"+ nivel + "/" + PlayerPrefs.GetInt("usuario_id");
+        UnityWebRequest web = UnityWebRequest.Put(JSONurl,bodyData);
+        web.certificateHandler = new ForceAcceptAll();
+        yield return web.SendWebRequest();
+
+        if (web.result != UnityWebRequest.Result.Success) {
+            UnityEngine.Debug.Log("Error API: " + web.error);
+        }
+        else {
+            //Debug.Log(nCoins);
+            //Debug.Log("Monedas actualizadas");
+        }
     }
 }
